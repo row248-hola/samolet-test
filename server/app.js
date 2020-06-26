@@ -4,7 +4,7 @@ const path = require("path");
 const proxy = require('http-proxy-middleware');
 
 app.use(express.static("public"));
-app.use('/opendata', proxy({ target: 'https://data.gov.ru/sites/default/files', changeOrigin: true /*, secure: true */ }));
+app.use('/opendata', proxy({ target: 'https://data.gov.ru/sites/default/files', changeOrigin: true }));
 
 app.listen(3000, () => {
   app.get(/\/(details)?/, (req, res) => {

@@ -7,7 +7,7 @@
 Не обязательно, но будет плюсом:
 
 - [x] Роутинг
-- [ ] Поиск по региону
+- [x] Поиск по региону
 - [ ] Сортировка по количеству библиотек
 - [x] Функциональные компоненты на хуках
 - [ ] Использовать ant.design для отображения
@@ -18,7 +18,11 @@
 
 ###### USAGE
 
-server: `node ./server/app.js`
+server:
 
-client: `yarn start` - development build <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `yarn build` - production build
+`node ./server/app.js` -> localhost:3000
+
+client:
+
+`yarn start` - development build <br/>
+`yarn build` - production build
