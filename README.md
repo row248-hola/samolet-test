@@ -14,3 +14,11 @@
 
 
 Для реализации используйте React и любые библиотеки, которые считаете уместными.
+
+
+###### USAGE
+
+server: `node ./server/app.js`
+
+client: `yarn start` - development build <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `yarn build` - production build

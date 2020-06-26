@@ -3,7 +3,11 @@ import { Layout } from 'antd';
 import './app.css';
 import { fetchData } from "./api";
 import HomePage from './components/pages/home';
-import DetailsPage from './components/pages/details/Component';
+import DetailsPage from './components/pages/details';
+import {
+  Switch,
+  Route,
+} from "react-router-dom";
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -14,10 +18,14 @@ export default function App() {
 
   return (
     <Layout>
-      {data.length && (
-        <DetailsPage data={data[0]} />
-      )}
-      <HomePage data={data} />
+      <Switch>
+        <Route exact path="/">
+          <HomePage data={data} />
+        </Route>
+        <Route path="/details/:id">
+          <DetailsPage data={data} />
+        </Route>
+      </Switch>
     </Layout>
   );
 }
