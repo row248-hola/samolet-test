@@ -1,26 +1,33 @@
 import { memo } from 'react';
-import * as R from 'ramda';
 import { Link } from 'react-router-dom';
+import Search from '../../Search';
+import { useSelector } from 'react-redux';
 
 const HomePage = ({
   data = []
 }) => {
-  const list = data.map(R.pick(['territory', 'buildings_management', 'order']));
+  const searchQuery = useSelector(({ value }) => value);
+
+  const list = data.filter(({ territory }) => territory.toLowerCase().match(searchQuery.toLowerCase()));
 
   return (
-    list.map(({ territory, buildings_management, order }) => (
-      <div key={order}>
-        <div>territory: {territory}</div>
-        <div>buildings_management: {buildings_management}</div>
-        <Link
-          to={`/details/${order}`}
-        >
-          show details
-        </Link>
-        <br />
-        <br />
-      </div>
-    ))
+    <>
+      <Search />
+      <br />
+      {list.map(({ territory, buildings_management, order }) => (
+        <div key={order}>
+          <div>territory: {territory}</div>
+          <div>buildings_management: {buildings_management}</div>
+          <Link
+            to={`/details/${order}`}
+          >
+            show details
+          </Link>
+          <br />
+          <br />
+        </div>
+      ))}
+    </>
   )
 };
 
