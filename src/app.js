@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Layout } from 'antd';
 import './app.css';
 import { fetchData } from "./api";
+import HomePage from './components/pages/home';
+import DetailsPage from './components/pages/details/Component';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -12,9 +14,10 @@ export default function App() {
 
   return (
     <Layout>
-      <pre>
-        { JSON.stringify(data, null, 2) }
-      </pre>
+      {data.length && (
+        <DetailsPage data={data[0]} />
+      )}
+      <HomePage data={data} />
     </Layout>
   );
 }
