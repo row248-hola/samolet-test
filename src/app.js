@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Layout } from 'antd';
 import './app.css';
-import { getData } from "./api";
+import { fetchData } from "./api";
 
 export default function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    getData().then(setData);
+    fetchData().then(setData);
   }, []);
 
   return (

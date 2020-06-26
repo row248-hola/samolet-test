@@ -1,0 +1,62 @@
+{
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-react-remove-prop-types"
+      ]
+    },
+    "development": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    },
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ],
+        "@babel/preset-react"
+      ],
+      "plugins": [
+        "dynamic-import-node",
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  },
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": [
+            "> 1%",
+            "ie >= 10"
+          ]
+        },
+        "useBuiltIns": "entry"
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "syntax-async-functions",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-transform-parameters",
+    "@babel/plugin-proposal-optional-chaining",
+    "babel-plugin-styled-components",
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "spec": true
+      }
+    ]
+  ]
+}
