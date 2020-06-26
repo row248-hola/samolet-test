@@ -1,16 +1,24 @@
+import { Link } from 'react-router-dom';
 import { memo } from 'react';
 import * as R from 'ramda';
 
 const DetailsPage = ({
   data = {}
 }) => {
+  const info = R.keys(data).map((key) => (
+    <div key={key}>
+      {key}: {data[key]}
+    </div>
+  ));
 
   return (
-    R.keys(data).map((key) => (
-      <div key={key}>
-        {key}: {data[key]}
-      </div>
-    ))
+    <>
+      <Link to="/">
+        back
+      </Link>
+      <br />
+      {info}
+    </>
   );
 };
 
